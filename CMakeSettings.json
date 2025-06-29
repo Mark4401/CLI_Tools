@@ -9,7 +9,17 @@
       "installRoot": "${projectDir}\\out\\install\\${name}",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "variables": [
+        {
+          "name": "BUILD_TOOL_A",
+          "value": "ON"
+        },
+        {
+          "name": "BUILD_TOOL_B",
+          "value": "OFF"
+        }
+      ]
     },
     {
       "name": "x64-Release",
@@ -21,7 +31,16 @@
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "msvc_x64_x64" ],
-      "variables": []
+      "variables": [
+        {
+          "name": "BUILD_TOOL_A",
+          "value": "ON"
+        },
+        {
+          "name": "BUILD_TOOL_B",
+          "value": "OFF"
+        }
+      ]
     }
   ]
 }
