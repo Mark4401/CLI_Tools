@@ -25,7 +25,8 @@ option(BUILD_TOOL_C "Build Tool C" OFF) # Add more tools as needed
 # ======================================
 # 🟩 Macro: define_tool
 # ======================================
-function(define_tool TOOL_NAME SRC_LIST HDR_LIST INCLUDE_DIRS)
+# define_tool(name sources headers include_dir subfolder)
+function(define_tool TOOL_NAME SRC_LIST HDR_LIST INCLUDE_DIRS SUBFOLDER)
     add_executable(${TOOL_NAME} ${SRC_LIST} ${HDR_LIST})
 
     target_include_directories(${TOOL_NAME} PRIVATE ${INCLUDE_DIRS})
@@ -41,9 +42,9 @@ function(define_tool TOOL_NAME SRC_LIST HDR_LIST INCLUDE_DIRS)
     )
 
     set_target_properties(${TOOL_NAME} PROPERTIES
-        ARCHIVE_OUTPUT_DIRECTORY ${GLOBAL_OUTPUT_DIR}/CLI_DB/$<CONFIG>
-        LIBRARY_OUTPUT_DIRECTORY ${GLOBAL_OUTPUT_DIR}/CLI_DB/$<CONFIG>
-        RUNTIME_OUTPUT_DIRECTORY ${GLOBAL_OUTPUT_DIR}/CLI_DB/$<CONFIG>
+        ARCHIVE_OUTPUT_DIRECTORY ${GLOBAL_OUTPUT_DIR}/${SUBFOLDER}/$<CONFIG>
+        LIBRARY_OUTPUT_DIRECTORY ${GLOBAL_OUTPUT_DIR}/${SUBFOLDER}/$<CONFIG>
+        RUNTIME_OUTPUT_DIRECTORY ${GLOBAL_OUTPUT_DIR}/${SUBFOLDER}/$<CONFIG>
     )
 endfunction()
 
@@ -51,16 +52,54 @@ endfunction()
 # 🟥 Tool Definitions (Using Macro)
 # ======================================
 
+
 # Tool A
 if (BUILD_TOOL_A)
     message(STATUS "🔨 Building Tool A")
+
+    set(ACTIVE_CLI_TOOL_SRCS
+        "${CMAKE_CURRENT_SOURCE_DIR}/Active_CLI_tool/Src/main.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Active_CLI_tool/Src/CommandLineProcess.cpp"
+    )
+
+    set(ACTIVE_CLI_TOOL_HDRS
+        "${CMAKE_CURRENT_SOURCE_DIR}/Active_CLI_tool/Headers/CommandLineProcess.h"
+    )
+
     define_tool(
-        ${PROJECT_NAME}
-        "${CMAKE_CURRENT_SOURCE_DIR}/Src/main.cpp;${CMAKE_CURRENT_SOURCE_DIR}/Src/CommandLineProcess.cpp"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Headers/CommandLineProcess.h"
-        "${CMAKE_CURRENT_SOURCE_DIR}/Headers"
+        Active_CLI_tool
+        "${ACTIVE_CLI_TOOL_SRCS}"
+        "${ACTIVE_CLI_TOOL_HDRS}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Active_CLI_tool/Headers"
+        "Active_CLI_tool"  # 👈 This becomes your sub-folder under Debug/Release
     )
 endif()
+
+# tool B
+
+if(BUILD_TOOL_B)
+    message(STATUS "Demo Argument Pars Building in Progress....")
+
+    set(Demo_CLI_FIS_SRCS
+        "${CMAKE_CURRENT_SOURCE_DIR}/Demo_CLI_FIS/Src/Source.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Demo_CLI_FIS/Src/CMD_literals.cpp"
+
+        
+    )
+    set(Demo_CLI_FIS_HDRS
+        "${CMAKE_CURRENT_SOURCE_DIR}/Demo_CLI_FIS/Headers/CMD_literals.h"
+    )
+
+    define_tool(
+        Demo_CLI
+        "${Demo_CLI_FIS_SRCS}"
+        "${Demo_CLI_FIS_HDRS}"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Demo_CLI_FIS/Headers"
+        "Demo_CLI"
+    )
+
+endif()
+
 # 
 # # Tool B
 # if (BUILD_TOOL_B)
