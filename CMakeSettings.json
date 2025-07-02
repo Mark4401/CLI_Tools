@@ -18,6 +18,10 @@
         {
           "name": "BUILD_TOOL_B",
           "value": "ON"
+        },
+        {
+          "name": "BUILD_TOOL_C",
+          "value": "ON"
         }
       ]
     },
@@ -38,7 +42,11 @@
         },
         {
           "name": "BUILD_TOOL_B",
-          "value": "OFF"
+          "value": "ON"
+        },
+        {
+          "name": "BUILD_TOOL_C",
+          "value": "ON"
         }
       ]
     }
