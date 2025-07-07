@@ -105,9 +105,13 @@ if(BUILD_TOOL_C)
 
     set(SRC_DIR
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Src/Source.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Src/CommandLineProcess.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Src/PlayerCampainGame.cpp"
     )
     set(HDR_DIR
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include/internal.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include/CommandLineProcess.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include/PlayerCampainGame.h"
     )
 
     define_tool(
