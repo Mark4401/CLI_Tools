@@ -107,11 +107,13 @@ if(BUILD_TOOL_C)
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Src/Source.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Src/CommandLineProcess.cpp"
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Src/PlayerCampainGame.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Src/DialogLookUp.cpp"
     )
     set(HDR_DIR
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include/internal.h"
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include/CommandLineProcess.h"
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include/PlayerCampainGame.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include/DialogLookUp.h"
     )
 
     define_tool(
@@ -121,27 +123,5 @@ if(BUILD_TOOL_C)
         "${CMAKE_CURRENT_SOURCE_DIR}/Primary_Project/Include"
         "CommandLine_tool"
     )
-
 endif()
-# 
-# # Tool B
-# if (BUILD_TOOL_B)
-#     message(STATUS "🔨 Building Tool B")
-#     define_tool(
-#         ToolB
-#         "${CMAKE_CURRENT_SOURCE_DIR}/ProjectB/Src/main.cpp"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/ProjectB/Headers/OtherHeader.h"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/ProjectB/Headers"
-#     )
-# endif()
-# 
-# # Tool C (template for future tools)
-# if (BUILD_TOOL_C)
-#     message(STATUS "🔨 Building Tool C")
-#     define_tool(
-#         ToolC
-#         "${CMAKE_CURRENT_SOURCE_DIR}/ProjectC/Src/main.cpp"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/ProjectC/Headers/ToolC.h"
-#         "${CMAKE_CURRENT_SOURCE_DIR}/ProjectC/Headers"
-#     )
-# endif()
+

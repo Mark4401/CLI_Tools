@@ -17,9 +17,11 @@ struct flagParams
 	string argList[MAX_LIST_LIMIT];
 };
 
+
 flagParams commandProcess(int argumentCount, char* argumentList[]);
 
 void PrintList(flagParams& list);
 void RequestLoop();
+
 
 #endif // COMMAND_LINE_PROCESS_H

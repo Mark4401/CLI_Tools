@@ -7,6 +7,8 @@
 #include <vector>
 #include <sstream>
 #include <cstdint>
+#include <fstream>
+#include <unordered_map>
 
 typedef int8_t Int8;
 typedef int16_t Int16;

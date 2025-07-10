@@ -1,0 +1,18 @@
+@scene START
+@emotion neutral
+"You awaken in the dark."
+"You feel cold stone beneath you."
+
+@choice
+- Look around => LOOK
+- Go back to sleep => SLEEP
+
+
+@scene LOOK
+@emotion alert
+"You see faint outlines of walls."
+"There’s a door."
+
+@scene SLEEP
+@emotion tired
+"You drift off again..."
